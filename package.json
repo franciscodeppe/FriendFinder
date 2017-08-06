@@ -1,0 +1,20 @@
+{
+  "name": "musicfinder",
+  "version": "1.0.0",
+  "description": "friend finder application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fdeppe/MusicFinder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fdeppe/MusicFinder/issues"
+  },
+  "homepage": "https://github.com/fdeppe/MusicFinder#readme"
+}
