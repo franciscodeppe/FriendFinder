@@ -1,11 +1,269 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Survey</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MusicFinder</title>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+<style>
+.match {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* match Content/Box */
+.match-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
 </head>
 <body>
 
-	<p>You're onto the Survey page...</p>
+  <div id="mymatch" class="match">
+    <div class="match-content">
+      <span class="close">&times;</span>
+      <p id="matchData"></p>
+    </div>
+  </div>
 
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>Survey Questions</h2>
+
+        <h3><strong>Question 1</strong></h3>
+        <h4>Tempo: 5 = (fast) | 1(slow) </h4>
+        <select data-placeholder="" class="chosen-select" id="q1">
+        <option value=""></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+        <h3><strong>Question 2</strong></h3>
+        <h4>Do you care about lyrics?</h4>
+        <select data-placeholder="" class="chosen-select" id="q2">
+        <option value=""></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+        <h3><strong>Question 3</strong></h3>
+        <h4>Do you want real instruments?</h4>
+        <select data-placeholder="" class="chosen-select" id="q3">
+        <option value=""></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+        <h3><strong>Question 4</strong></h3>
+        <h4>Something mainstream?</h4>
+        <select data-placeholder="" class="chosen-select" id="q4">
+        <option value=""></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+        <h3><strong>Question 5</strong></h3>
+        <h4>Do you care about the artist personality?</h4>
+        <select data-placeholder="" class="chosen-select" id="q5">
+        <option value=""></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+        <h3><strong>Question 6</strong></h3>
+        <h4>Do you care about how they sound live?</h4>
+        <select data-placeholder="" class="chosen-select" id="q6">
+        <option value=""></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+        <div id="dialog-message" title="Download complete"></div>
+
+        <h3><strong>Question 7</strong></h3>
+        <h4>Would you tell people you listen to this music/artist?</h4>
+        <select data-placeholder="" class="chosen-select" id="q7">
+        <option value=""></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+        <h3><strong>Question 8</strong></h3>
+        <h4>Today's music is no good...</h4>
+        <select data-placeholder="" class="chosen-select" id="q8">
+        <option value=""></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+        <h3><strong>Question 9</strong></h3>
+        <h4>"Music in the soul can be heard by the universe."</h4>
+        <select data-placeholder="" class="chosen-select" id="q10">
+        <option value=""></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+        <h3><strong>Question 10</strong></h3>
+        <h4>How often do you listen to music? 5 (always) | 1 (never)</h4>
+        <select data-placeholder="" class="chosen-select" id="q9">
+        <option value=""></option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+        <br>
+        <br>
+        <button id="submit" class="btn btn-primary btn-lg" style="width: 100%;"><i class="fa fa-check-circle" aria-hidden="true"></i> Submit</button>
+        <hr>
+        <p>
+          <a href="/api/music"><button class="btn btn-link">API Music List</button></a> |
+          <button class="btn btn-link">GitHub Repo</button>
+        </p>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+
+  $("#submit").on("click", function(event) {
+      event.preventDefault();
+      var musicPrefs = {     
+        scores: [
+          $("#q1").val().trim(),
+          $("#q2").val().trim(),
+          $("#q3").val().trim(),
+          $("#q4").val().trim(),
+          $("#q5").val().trim(),
+          $("#q6").val().trim(),
+          $("#q7").val().trim(),
+          $("#q8").val().trim(),
+          $("#q9").val().trim(),
+          $("#q10").val().trim()
+        ]
+      };
+
+      for (var i = 0; i < musicPrefs.scores.length; i++) {
+        if (musicPrefs.scores[i] === '') {
+          alert('Please enter a value for all fields');
+          return;
+        }
+        $('#q' + (i + 1)).val('');
+      }
+
+      $.post("/api/new", musicPrefs
+      ).done(function(data) {
+
+        let scoreSum = []; //get sum of scores
+        for (var i = 0; i < data.length; i++) {
+          let arraySum = 0;
+          for (var j = 0; j < data[i].scores.length; j++) {
+            arraySum += +data[i].scores[j];
+          }
+          scoreSum.push(arraySum);
+        }
+
+        let controlSum = scoreSum[scoreSum.length - 1]; //get difference between current input and previous inputs
+        let diffArr = [];
+        for (var i = 0; i < scoreSum.length; i++) {
+          let x = controlSum - scoreSum[i];
+          if (x < 0) { x = x * -1;}
+          diffArr.push(x);
+        }
+
+        diffArr.pop();
+        let match = diffArr.indexOf(Math.min.apply(null, diffArr)); //find closest match (closest sum)
+
+        function showMatch(x) {
+          let match = $('#mymatch');
+          match.css('display', 'block');
+
+          let matchData = $('#matchData');
+          matchData.html(
+            '<h1>Best Match</h1>' +
+            '<hr>' +
+            '<h3>' + data[x].name + '</h3><hr><br>' +
+            '<h3' +  data[x].song + '</h3><hr><br>'
+          );
+        }
+        showMatch(match);
+      });
+    });
+
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the match
+span.onclick = function() {
+  let match = $('#mymatch');
+  match.css('display', 'none');
+}
+  </script>
 </body>
 </html>
